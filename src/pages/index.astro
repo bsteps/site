@@ -1,0 +1,224 @@
+---
+import "../styles/global.css";
+import handUrl from "@fontsource/patrick-hand/files/patrick-hand-latin-400-normal.woff2?url";
+
+const site = "https://bsteps.vercel.app/";
+const title = "Nishant | Product engineer";
+const description =
+  "Nishant's notebook. Product engineer in India: payments for a SaaS 300+ businesses use by day, his own products after work.";
+
+// The log is the page. Newest first. Each entry: date in the margin, one line, optional detail, link and screenshot.
+type Entry = {
+  date: string;
+  title: string;
+  href?: string;
+  note?: string;
+  stats?: string[];
+  shot?: string;
+  dark?: boolean;
+};
+
+const entries: Entry[] = [
+  {
+    date: "Oct 2026",
+    title: "Launched Sponsor.st",
+    href: "https://sponsor.st",
+    note: "Sell sponsor spots on your own site. One script tag, brands book a month and pay you directly.",
+    stats: ["10 signups", "$0 so far"],
+    shot: "/shots/sponsorst.webp",
+  },
+  {
+    date: "Jun 2026",
+    title: "Tuck: someone paid",
+    href: "https://tuckhq.com",
+    note: "My first ever online money. Then I stopped working on it. Still live, free plan.",
+    stats: ["1 paying customer"],
+  },
+  {
+    date: "Apr 2026",
+    title: "Launched Tuck",
+    href: "https://tuckhq.com",
+    note: "Drop in a file, AI puts it in the right Google Drive folder.",
+    shot: "/shots/tuck.webp",
+    dark: true,
+  },
+  {
+    date: "Mar 2026",
+    title: "Thread Art",
+    href: "https://thread-art-three.vercel.app",
+    note: "Turns a portrait into a string art pattern.",
+  },
+  {
+    date: "Jul 2025",
+    title: "Zerodha F&O trade journal",
+    href: "https://zerodha-fno-trade-journal.vercel.app",
+    note: "Upload your Zerodha F&O export, see your P&L and where you keep losing. Open source.",
+  },
+  {
+    date: "Oct 2023",
+    title: "Went back to the same company",
+    note: "Now called KodeCreators. Same product, more of it.",
+  },
+  {
+    date: "Jun 2022",
+    title: "Published flutter_photon_rs",
+    href: "https://pub.dev/packages/flutter_photon_rs",
+    note: "Fast Rust image filters, called from Flutter.",
+    stats: ["15 pub.dev likes", "11 stars"],
+  },
+  {
+    date: "Mar 2022",
+    title: "Quit my job to build my own products",
+    note: "1.5 years, freelance on the side. Nothing worked.",
+  },
+  {
+    date: "2021",
+    title: "co-helper",
+    href: "https://github.com/bsteps/co-helper",
+    note: "Built during COVID. Pinged you when vaccine slots opened in your pincode.",
+  },
+  {
+    date: "Apr 2019",
+    title: "First job, at Kodemakers",
+    note: "Straight after my computer engineering diploma.",
+  },
+];
+
+const tools = ["Laravel", "PHP", "MySQL", "React", "Next.js", "Flutter", "Rust", "Stripe", "Claude Code"];
+
+const links = [
+  { label: "X / Twitter", href: "https://x.com/bsteps_" },
+  { label: "GitHub", href: "https://github.com/bsteps" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/bsteps/" },
+];
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Nishant",
+  alternateName: "bsteps",
+  url: site,
+  jobTitle: "Product engineer",
+  image: `${site}og.png`,
+  sameAs: links.map((l) => l.href).concat("https://sponsor.st"),
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#faf7f0" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" as="font" type="font/woff2" href={handUrl} crossorigin />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={site} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nishant" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={site} />
+    <meta property="og:image" content={`${site}og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Nishant, product engineer. A handwritten note: Baby steps to Giant strides." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@bsteps_" />
+    <meta name="twitter:image" content={`${site}og.png`} />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+  </head>
+  <body class="font-sans text-[15px]">
+    <main class="sheet mx-auto max-w-[760px] pb-16 [--margin-x:76px] sm:[--margin-x:132px]">
+      <header class="rise flex items-start gap-4 pt-16 pr-6 pl-[calc(var(--margin-x)+20px)] sm:pt-24" style="--i:0">
+        <div class="min-w-0 flex-1">
+          <h1 class="flex items-center gap-3 font-hand text-[34px] leading-[64px] font-normal">
+            <img src="/nishant.webp" alt="" fetchpriority="high" width="44" height="44" class="size-11 rounded-full ring-1 ring-black/10" />
+            Nishant
+          </h1>
+          <p class="text-muted">Product engineer · Vadodara, India</p>
+        </div>
+        <figure class="note -mt-4 w-[96px] shrink-0 sm:-mb-10 sm:w-[168px]">
+          <img
+            src="/alex-ink.webp"
+            alt="Handwritten note: Baby steps to Giant strides, Alex"
+            width="128"
+            height="128"
+            class="size-[96px] -rotate-2 sm:!size-[168px]"
+          />
+          <figcaption class="whitespace-nowrap text-center font-hand text-[13px] leading-8 text-faint sm:text-[14px]">from Baby Steps</figcaption>
+        </figure>
+      </header>
+
+      <section class="rise mt-8 pr-6 pl-[calc(var(--margin-x)+20px)] text-muted sm:pr-48" style="--i:1">
+        <p>By day I build backend and payments for a SaaS that 300+ businesses run on.</p>
+        <p>After work I build my own products. This page is the log, newest first.</p>
+        <p>
+          Outside work: markets, the gym (not jacked yet) and anime. My handle comes from{" "}
+          <a class="link" href="https://anilist.co/anime/20854/Baby-Steps/"><i>Baby Steps</i></a>.
+        </p>
+      </section>
+
+      <section class="rise relative mt-8" style="--i:2">
+        <p class="absolute left-0 w-[var(--margin-x)] pr-3 text-right font-hand text-[18px] text-spot">now</p>
+        <p class="pr-6 pl-[calc(var(--margin-x)+20px)]">
+          Getting <mark>Sponsor.st</mark> its first paying customer.
+        </p>
+      </section>
+
+      <ol class="mt-8">
+        {
+          entries.map((e, i) => (
+            <li class="rise relative pb-8" style={`--i:${i + 3}`}>
+              <time class="absolute left-0 block w-[var(--margin-x)] pr-3 text-right font-hand text-[17px] text-faint">
+                {e.date}
+              </time>
+              <div class="pr-6 pl-[calc(var(--margin-x)+20px)]">
+                <p class="font-medium">
+                  {e.href ? <a class="link" href={e.href}>{e.title}</a> : e.title}
+                </p>
+                {e.note && <p class="text-muted">{e.note}</p>}
+                {e.stats && (
+                  <p class="flex flex-wrap gap-x-4 font-mono text-[12px] text-good">
+                    {e.stats.map((s) => (
+                      <span class={s.startsWith("$0") ? "text-faint" : ""}>{s}</span>
+                    ))}
+                  </p>
+                )}
+                {e.shot && (
+                  <a href={e.href} class="mt-2 block w-full max-w-[460px]" aria-label={`${e.title}, open site`}>
+                    <img
+                      src={e.shot}
+                      srcset={`${e.shot.replace(".webp", "-800.webp")} 800w, ${e.shot} 1920w`}
+                      sizes="(min-width: 640px) 460px, 90vw"
+                      alt={`${e.title} screenshot`}
+                      width="1920"
+                      height="1020"
+                      loading={i === 0 ? "eager" : "lazy"}
+                      class={`shot h-[192px] w-full rounded-md object-cover object-top sm:h-[256px] shadow-[0_10px_24px_-14px_rgba(0,0,0,0.35)] ring-1 ${
+                        e.dark ? "ring-white/10 brightness-[1.12] contrast-[0.92]" : "ring-black/10"
+                      }`}
+                    />
+                  </a>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+
+      <section class="pr-6 pl-[calc(var(--margin-x)+20px)] text-muted">
+        <p><span class="font-hand text-[18px] text-ink">tools:</span> {tools.join(" · ")}</p>
+      </section>
+
+      <footer class="mt-16 flex flex-wrap items-center justify-between gap-x-6 pr-6 pl-[calc(var(--margin-x)+20px)] text-[13px] text-muted">
+        <p class="font-hand text-[18px] text-ink">baby steps to giant strides</p>
+        <nav class="flex gap-4">
+          {links.map((l) => <a class="link" href={l.href}>{l.label}</a>)}
+        </nav>
+      </footer>
+    </main>
+  </body>
+</html>
