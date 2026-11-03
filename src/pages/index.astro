@@ -132,7 +132,7 @@ const person = {
   </head>
   <body class="font-sans text-[15px]">
     <main class="sheet mx-auto max-w-[760px] pb-16 [--margin-x:76px] sm:[--margin-x:132px]">
-      <header class="rise flex items-start gap-4 pt-16 pr-6 pl-[calc(var(--margin-x)+20px)] sm:pt-24" style="--i:0">
+      <header class="rise flex items-start gap-4 pt-16 pr-6 pl-[calc(var(--margin-x)+20px)] sm:h-[224px] sm:pt-24" style="--i:0">
         <div class="min-w-0 flex-1">
           <h1 class="flex items-center gap-3 font-hand text-[34px] leading-[64px] font-normal">
             <img src="/nishant.webp" alt="" fetchpriority="high" width="44" height="44" class="size-11 rounded-full ring-1 ring-black/10" />
@@ -188,16 +188,16 @@ const person = {
                   </p>
                 )}
                 {e.shot && (
-                  <a href={e.href} class="mt-2 block w-full max-w-[460px]" aria-label={`${e.title}, open site`}>
+                  <a href={e.href} class="mt-2 mb-6 block w-fit max-w-full" aria-label={`${e.title}, open site`}>
                     <img
                       src={e.shot}
                       srcset={`${e.shot.replace(".webp", "-800.webp")} 800w, ${e.shot} 1920w`}
-                      sizes="(min-width: 640px) 460px, 90vw"
+                      sizes="(min-width: 768px) 482px, 90vw"
                       alt={`${e.title} screenshot`}
                       width="1920"
                       height="1020"
                       loading={i === 0 ? "eager" : "lazy"}
-                      class={`shot h-[192px] w-full rounded-md object-cover object-top sm:h-[256px] shadow-[0_10px_24px_-14px_rgba(0,0,0,0.35)] ring-1 ${
+                      class={`shot h-[128px] w-auto max-w-full rounded-md object-contain min-[400px]:h-[160px] sm:h-[224px] md:h-[256px] shadow-[0_10px_24px_-14px_rgba(0,0,0,0.35)] ring-1 ${
                         e.dark ? "ring-white/10 brightness-[1.12] contrast-[0.92]" : "ring-black/10"
                       }`}
                     />
